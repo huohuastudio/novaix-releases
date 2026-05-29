@@ -71,4 +71,4 @@ server {
 
 ## License
 
-Copyright &copy; 火花网络科技工作室. All rights reserved.
+Copyright &copy; [Spark Studio](https://huohuastudio.com). All rights reserved.
