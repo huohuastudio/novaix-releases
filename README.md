@@ -1,6 +1,6 @@
 # Novaix
 
-> **⚠️ 当前为预览版本，功能尚未完善，可能存在不稳定的情况。如果你在使用过程中遇到任何问题或有功能建议，欢迎提交 [Issue](https://github.com/huohuastudio/novaix-releases/issues)。**
+> **⚠️ 当前为预览版本，功能尚未完善，可能存在不稳定的情况。程序暂时无法公开使用，仅支持搭建后启用演示模式使用，如果你在体验过程中遇到任何问题或有功能建议，欢迎提交 [Issue](https://github.com/huohuastudio/novaix-releases/issues)。**
 
 Novaix 是一套商业化 IDC 管理系统，面向中小型 VPS 服务商，提供节点管理、实例生命周期管理、计费订单、工单系统等一站式解决方案。
 
