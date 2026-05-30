@@ -1,0 +1,12 @@
+{
+  "name": "novaix-docs",
+  "license": "UNLICENSED",
+  "scripts": {
+    "docs:dev": "vitepress dev src",
+    "docs:build": "vitepress build src",
+    "docs:preview": "vitepress preview src"
+  },
+  "devDependencies": {
+    "vitepress": "^1.6.3"
+  }
+}
