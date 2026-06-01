@@ -65,9 +65,24 @@ server {
 }
 ```
 
+## 第三方集成
+
+[`integrations/`](./integrations/) 目录提供了与第三方财务/分销系统对接所需的文档和模块：
+
+| 内容 | 路径 | 说明 |
+|------|------|------|
+| Provisioning API 参考 | [`integrations/provisioning-api.md`](./integrations/provisioning-api.md) | 完整接口说明、认证方式、幂等性、错误码 |
+| Webhook 回调与验签 | [`integrations/webhook.md`](./integrations/webhook.md) | 异步通知格式与 HMAC-SHA256 验签 |
+| Webhook 接收端示例 | [`integrations/webhook-examples/`](./integrations/webhook-examples/) | PHP / Python / Node 三种语言的参考实现 |
+| 智简魔方模块 | [`integrations/mofang/`](./integrations/mofang/) | IDCsmart 魔方对接模块 |
+| WHMCS 模块 | [`integrations/whmcs/`](./integrations/whmcs/) | WHMCS Provisioning 模块 |
+
+如需对接其他系统，请参阅 [Provisioning API 参考](./integrations/provisioning-api.md) 和已有模块的实现。
+
 ## 联系我们
 
 - 官网：[huohuastudio.com](https://huohuastudio.com)
+- 邮箱：[support@huohuastudio.com](support@huohuastudio.com)
 
 ## License
 
