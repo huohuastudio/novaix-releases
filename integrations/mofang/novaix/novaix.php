@@ -6,16 +6,16 @@
  * 实现 VPS 实例的自动开通、暂停、恢复、删除等全生命周期管理。
  */
 
-function NovaIx_MetaData()
+function novaix_MetaData()
 {
     return [
-        'display_name' => 'NovaIx VPS',
-        'version'      => '1.0.0',
-        'author'       => 'NovaIx',
+        'DisplayName' => 'NovaIx VPS',
+        'APIVersion'  => '1.1',
+        'HelpDoc'     => 'https://docs.huohuastudio.com/novaix/integrations/mofang',
     ];
 }
 
-function NovaIx_ConfigOptions()
+function novaix_ConfigOptions()
 {
     return [
         [
@@ -40,7 +40,7 @@ function NovaIx_ConfigOptions()
     ];
 }
 
-function NovaIx_TestLink($params)
+function novaix_TestLink($params)
 {
     $result = _novaix_request($params, 'POST', '/test');
     if ($result && ($result['code'] ?? -1) === 0) {
@@ -49,7 +49,7 @@ function NovaIx_TestLink($params)
     return ['status' => 'error', 'msg' => $result['message'] ?? '连接失败'];
 }
 
-function NovaIx_CreateAccount($params)
+function novaix_CreateAccount($params)
 {
     $data = [
         'plan_id'     => (int) ($params['configoptions']['plan_id'] ?? 0),
@@ -65,7 +65,6 @@ function NovaIx_CreateAccount($params)
         $data['node_id'] = (int) $nodeId;
     }
 
-    // 提交创建请求（NovaIx 异步创建实例）
     $result = _novaix_request($params, 'POST', '/instances', $data);
     if (!$result || ($result['code'] ?? -1) !== NOVAIX_OK) {
         return ['status' => 'error', 'msg' => $result['message'] ?? '开通请求失败'];
@@ -76,7 +75,6 @@ function NovaIx_CreateAccount($params)
         return ['status' => 'error', 'msg' => '开通响应缺少 instance_id'];
     }
 
-    // 轮询等待最终状态，最多 NOVAIX_CREATE_TIMEOUT 秒
     return _novaix_wait_for_running($params, $instanceId);
 }
 
@@ -88,7 +86,7 @@ function _novaix_wait_for_running($params, $instanceId)
 
         $status = _novaix_request($params, 'GET', "/instances/{$instanceId}/status");
         if (!$status || ($status['code'] ?? -1) !== NOVAIX_OK) {
-            continue; // 偶发网络/查询失败，继续等待
+            continue;
         }
 
         $s = $status['data']['status'] ?? '';
@@ -98,46 +96,43 @@ function _novaix_wait_for_running($params, $instanceId)
         if ($s === 'error') {
             return ['status' => 'error', 'msg' => '实例创建失败，请检查 NovaIx 后台任务日志'];
         }
-        // creating/其他过渡状态：继续轮询
     }
 
     return ['status' => 'error', 'msg' => '等待实例创建超时（' . NOVAIX_CREATE_TIMEOUT . 's），请稍后到 NovaIx 后台确认状态'];
 }
 
-// 关键计费动作（暂停/解除/删除）等待任务真正完成，避免和魔方两侧状态不一致
-
-function NovaIx_SuspendAccount($params)
+function novaix_SuspendAccount($params)
 {
     $reason = $params['suspend_type'] ?? 'overdue';
     return _novaix_action_and_wait($params, 'suspend', ['reason' => $reason]);
 }
 
-function NovaIx_UnsuspendAccount($params)
+function novaix_UnsuspendAccount($params)
 {
     return _novaix_action_and_wait($params, 'unsuspend');
 }
 
-function NovaIx_TerminateAccount($params)
+function novaix_TerminateAccount($params)
 {
     return _novaix_action_and_wait($params, 'terminate');
 }
 
-function NovaIx_On($params)
+function novaix_On($params)
 {
     return _novaix_simple_action($params, 'start');
 }
 
-function NovaIx_Off($params)
+function novaix_Off($params)
 {
     return _novaix_simple_action($params, 'stop');
 }
 
-function NovaIx_Reboot($params)
+function novaix_Reboot($params)
 {
     return _novaix_simple_action($params, 'reboot');
 }
 
-function NovaIx_Reinstall($params)
+function novaix_Reinstall($params)
 {
     return _novaix_action_and_wait($params, 'reinstall', [
         'image_id' => (int) ($params['configoptions']['image_id'] ?? 0),
@@ -145,14 +140,14 @@ function NovaIx_Reinstall($params)
     ]);
 }
 
-function NovaIx_CrackPassword($params, $newPassword)
+function novaix_CrackPassword($params)
 {
     return _novaix_action_and_wait($params, 'reset-password', [
-        'password' => $newPassword,
+        'password' => $params['password'] ?? '',
     ]);
 }
 
-function NovaIx_AllowFunction()
+function novaix_AllowFunction()
 {
     return [
         'client' => ['On', 'Off', 'Reboot', 'Reinstall', 'CrackPassword'],
@@ -160,37 +155,22 @@ function NovaIx_AllowFunction()
     ];
 }
 
-function NovaIx_ClientArea($params)
+function novaix_ClientArea($params)
 {
     return [];
 }
 
-function NovaIx_ClientAreaOutput($params, $key)
+function novaix_ClientAreaOutput($params, $key)
 {
     return '';
-}
-
-function NovaIx_hostList($params)
-{
-    return [];
-}
-
-function NovaIx_clientProductConfigOption($params)
-{
-    return [];
-}
-
-function NovaIx_cartCalculatePrice($params)
-{
-    return [];
 }
 
 // ========== 内部辅助函数 ==========
 
 const NOVAIX_OK = 0;
-const NOVAIX_CREATE_TIMEOUT = 180; // 创建轮询最长等待秒数
-const NOVAIX_ACTION_TIMEOUT = 60;  // 暂停/恢复/删除/重装等动作轮询最长秒数
-const NOVAIX_POLL_INTERVAL  = 3;   // 轮询间隔秒数
+const NOVAIX_CREATE_TIMEOUT = 180;
+const NOVAIX_ACTION_TIMEOUT = 60;
+const NOVAIX_POLL_INTERVAL  = 3;
 
 function _novaix_simple_action($params, $action, $data = [])
 {
@@ -241,10 +221,17 @@ function _novaix_wait_for_task($params, $taskId)
 
 function _novaix_request($params, $method, $path, $data = [])
 {
-    $apiUrl = rtrim($params['server_ip'] ?? '', '/');
-    $apiKey = $params['accesshash'] ?? '';
+    $scheme = !empty($params['secure']) ? 'https' : 'http';
+    $host = $params['server_host'] ?? ($params['server_ip'] ?? '');
+    $port = $params['port'] ?? '';
 
-    $url = $apiUrl . '/api/v1/provision' . $path;
+    $baseUrl = $scheme . '://' . $host;
+    if ($port !== '' && $port !== '443' && $port !== '80') {
+        $baseUrl .= ':' . $port;
+    }
+
+    $url = $baseUrl . '/api/v1/provision' . $path;
+    $apiKey = $params['server_password'] ?? ($params['accesshash'] ?? '');
 
     $ch = curl_init();
     curl_setopt_array($ch, [
