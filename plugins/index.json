@@ -1,0 +1,56 @@
+{
+  "plugins": [
+    {
+      "id": "clogin",
+      "name": "彩虹聚合登录",
+      "version": "1.0.0",
+      "description": "对接彩虹聚合登录平台，支持 QQ、微信、支付宝、微博、哔哩哔哩、抖音等多种社交账号一键登录",
+      "type": "oauth",
+      "author": {
+        "name": "Novaix",
+        "url": "https://github.com/huohuastudio/novaix-releases"
+      },
+      "novaix": "",
+      "download_url": "https://raw.githubusercontent.com/huohuastudio/novaix-releases/main/plugins/clogin.zip"
+    },
+    {
+      "id": "epay",
+      "name": "易支付",
+      "version": "1.1.0",
+      "description": "兼容彩虹易支付 / ZPAY 等通用易支付规范，支持页面跳转和 API 出码两种模式",
+      "type": "payment",
+      "author": {
+        "name": "Novaix",
+        "url": "https://github.com/huohuastudio/novaix-releases"
+      },
+      "novaix": "",
+      "download_url": "https://raw.githubusercontent.com/huohuastudio/novaix-releases/main/plugins/epay.zip"
+    },
+    {
+      "id": "pushplus",
+      "name": "PushPlus",
+      "version": "1.0.0",
+      "description": "通过 PushPlus 推送系统通知到微信，适合不使用企业 IM 的管理员",
+      "type": "notify",
+      "author": {
+        "name": "Novaix",
+        "url": "https://github.com/huohuastudio/novaix-releases"
+      },
+      "novaix": "",
+      "download_url": "https://raw.githubusercontent.com/huohuastudio/novaix-releases/main/plugins/pushplus.zip"
+    },
+    {
+      "id": "smsbao",
+      "name": "短信宝",
+      "version": "1.0.0",
+      "description": "对接短信宝平台发送短信验证码，价格低廉，无需企业认证",
+      "type": "sms",
+      "author": {
+        "name": "Novaix",
+        "url": "https://github.com/huohuastudio/novaix-releases"
+      },
+      "novaix": "",
+      "download_url": "https://raw.githubusercontent.com/huohuastudio/novaix-releases/main/plugins/smsbao.zip"
+    }
+  ]
+}
