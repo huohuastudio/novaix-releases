@@ -16,7 +16,7 @@
     {
       "id": "epay",
       "name": "易支付",
-      "version": "1.1.0",
+      "version": "1.0.0",
       "description": "兼容彩虹易支付 / ZPAY 等通用易支付规范，支持页面跳转和 API 出码两种模式",
       "type": "payment",
       "author": {
