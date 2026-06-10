@@ -51,6 +51,19 @@
       },
       "novaix": "",
       "download_url": "https://raw.githubusercontent.com/huohuastudio/novaix-releases/main/plugins/smsbao.zip"
+    },
+    {
+      "id": "geetest",
+      "name": "极验行为验证",
+      "version": "1.0.0",
+      "description": "极验 CAPTCHA v4 行为验证（滑动/点选/无感），适用于登录、注册等场景的人机验证",
+      "type": "captcha",
+      "author": {
+        "name": "Novaix",
+        "url": "https://github.com/huohuastudio/novaix-releases"
+      },
+      "novaix": "",
+      "download_url": "https://raw.githubusercontent.com/huohuastudio/novaix-releases/main/plugins/geetest.zip"
     }
   ]
 }
