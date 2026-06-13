@@ -1,0 +1,38 @@
+name: 问题咨询
+description: 使用过程中遇到的疑问
+labels: ["question"]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: 问题描述
+      description: 请详细描述你遇到的问题或疑惑
+    validations:
+      required: true
+
+  - type: textarea
+    id: tried
+    attributes:
+      label: 已尝试的方案
+      description: 你已经尝试过哪些方法来解决这个问题
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Novaix 版本号
+      placeholder: "例如: v1.2.0"
+
+  - type: textarea
+    id: references
+    attributes:
+      label: 相关文档链接
+      description: 是否已查阅过相关文档？请贴上链接
+      placeholder: "例如: https://docs.huohuastudio.com/novaix/..."
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: 补充信息
+      description: 其他有助于回答问题的信息，如截图、配置片段等

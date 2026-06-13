@@ -1,0 +1,94 @@
+name: Bug 反馈
+description: 报告 Novaix 的 Bug 或异常行为
+labels: ["bug"]
+body:
+  - type: input
+    id: version
+    attributes:
+      label: Novaix 版本号
+      description: 可在管理面板底部或通过 API 获取当前版本号
+      placeholder: "例如: v1.2.0"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: 问题描述
+      description: 简明扼要地描述遇到的问题
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: 复现步骤
+      description: 请按顺序列出能稳定复现问题的操作步骤
+      placeholder: |
+        1. 进入「xxx」页面
+        2. 点击「xxx」按钮
+        3. 填写表单并提交
+        4. 出现错误
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: 期望行为
+      description: 正常情况下应该出现什么结果
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: 实际行为
+      description: 实际出现了什么结果或错误
+    validations:
+      required: true
+
+  - type: dropdown
+    id: os
+    attributes:
+      label: 服务器操作系统
+      description: 部署 Novaix 的服务器操作系统
+      options:
+        - Debian 12
+        - Debian 11
+        - Ubuntu 24.04
+        - Ubuntu 22.04
+        - CentOS Stream 9
+        - Rocky Linux 9
+        - AlmaLinux 9
+        - 其他（请在补充信息中说明）
+    validations:
+      required: true
+
+  - type: dropdown
+    id: database
+    attributes:
+      label: 数据库类型
+      options:
+        - SQLite（默认）
+        - MySQL
+    validations:
+      required: true
+
+  - type: input
+    id: browser
+    attributes:
+      label: 浏览器（前端问题时填写）
+      placeholder: "例如: Chrome 126、Safari 18、Firefox 128"
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: 相关日志或截图
+      description: 如有错误日志、浏览器控制台报错或截图，请粘贴在此处。敏感信息请脱敏处理。
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: 补充信息
+      description: 其他可能有助于定位问题的信息
