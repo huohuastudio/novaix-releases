@@ -3,7 +3,7 @@
     {
       "id": "clogin",
       "name": "彩虹聚合登录",
-      "version": "1.1.0",
+      "version": "1.0.0",
       "description": "对接彩虹聚合登录平台，支持 QQ、微信、支付宝、微博、哔哩哔哩、抖音等多种社交账号一键登录",
       "type": "oauth",
       "author": {
@@ -16,7 +16,7 @@
     {
       "id": "epay",
       "name": "易支付",
-      "version": "1.1.0",
+      "version": "1.0.0",
       "description": "兼容彩虹易支付 / ZPAY 等通用易支付规范，支持页面跳转和 API 出码两种模式",
       "type": "payment",
       "author": {
