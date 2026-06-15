@@ -78,6 +78,52 @@ server {
 }
 ```
 
+## 主题市场
+
+Novaix 支持通过主题系统自定义前端界面。前端源码开源在 [novaix-ui](https://github.com/huohuastudio/novaix-ui) 仓库，你可以基于它开发自己的主题。
+
+### 提交主题到市场
+
+如果你开发了一个主题并希望上架到 Novaix 主题市场，请通过 PR 提交：
+
+1. 将你的主题 zip 包放到 `themes/` 目录下（如 `themes/my-theme.zip`）
+2. 在 `themes/index.json` 的 `themes` 数组中添加一条记录
+3. 提交 PR
+
+**主题 zip 包要求：**
+
+```
+my-theme.zip
+├── theme.json           # 必需
+├── screenshot.png       # 建议提供（1280×800，<500KB）
+└── ui/                  # 必需，pnpm build 的完整产物
+    ├── index.html
+    └── assets/
+```
+
+**index.json 条目格式：**
+
+```json
+{
+  "id": "my-theme",
+  "name": "主题名称",
+  "version": "1.0.0",
+  "description": "简短描述",
+  "author": {"name": "作者名", "url": "https://github.com/your-name"},
+  "novaix": "~0.2.5",
+  "download_url": "https://raw.githubusercontent.com/huohuastudio/novaix-releases/main/themes/my-theme.zip"
+}
+```
+
+> `download_url` 中的文件名必须与你放到 `themes/` 目录下的 zip 文件名一致。`novaix` 字段建议使用 `~x.y.z` 约束，表示兼容该 patch 版本范围。
+
+**审核标准：**
+
+- 主题能正常安装和使用
+- `theme.json` 字段完整且格式正确
+- 不包含恶意代码或外部跟踪脚本
+- zip 大小不超过 50MB
+
 ## 第三方集成
 
 [`integrations/`](./integrations/) 目录提供了与第三方财务/分销系统对接所需的文档和模块：
