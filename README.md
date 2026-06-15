@@ -110,12 +110,12 @@ my-theme.zip
   "version": "1.0.0",
   "description": "简短描述",
   "author": {"name": "作者名", "url": "https://github.com/your-name"},
-  "novaix": "~0.2.5",
+  "requires": "~0.2.5",
   "download_url": "https://raw.githubusercontent.com/huohuastudio/novaix-releases/main/themes/my-theme.zip"
 }
 ```
 
-> `download_url` 中的文件名必须与你放到 `themes/` 目录下的 zip 文件名一致。`novaix` 字段建议使用 `~x.y.z` 约束，表示兼容该 patch 版本范围。
+> `download_url` 中的文件名必须与你放到 `themes/` 目录下的 zip 文件名一致。`requires` 字段建议使用 `~x.y.z` 约束，表示兼容该 patch 版本范围。
 
 **审核标准：**
 
