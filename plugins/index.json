@@ -10,7 +10,7 @@
         "name": "Novaix",
         "url": "https://github.com/huohuastudio/novaix-releases"
       },
-      "novaix": "",
+      "requires": "",
       "download_url": "https://raw.githubusercontent.com/huohuastudio/novaix-releases/main/plugins/clogin.zip"
     },
     {
@@ -23,7 +23,7 @@
         "name": "Novaix",
         "url": "https://github.com/huohuastudio/novaix-releases"
       },
-      "novaix": "",
+      "requires": "",
       "download_url": "https://raw.githubusercontent.com/huohuastudio/novaix-releases/main/plugins/epay.zip"
     },
     {
@@ -36,7 +36,7 @@
         "name": "Novaix",
         "url": "https://github.com/huohuastudio/novaix-releases"
       },
-      "novaix": "",
+      "requires": "",
       "download_url": "https://raw.githubusercontent.com/huohuastudio/novaix-releases/main/plugins/geetest.zip"
     },
     {
@@ -49,7 +49,7 @@
         "name": "Novaix",
         "url": "https://github.com/huohuastudio/novaix-releases"
       },
-      "novaix": "",
+      "requires": "",
       "download_url": "https://raw.githubusercontent.com/huohuastudio/novaix-releases/main/plugins/pushplus.zip"
     },
     {
@@ -62,7 +62,7 @@
         "name": "Novaix",
         "url": "https://github.com/huohuastudio/novaix-releases"
       },
-      "novaix": "",
+      "requires": "",
       "download_url": "https://raw.githubusercontent.com/huohuastudio/novaix-releases/main/plugins/smsbao.zip"
     }
   ]
