@@ -188,10 +188,23 @@ function novaix_Reinstall($params)
     if (!empty($params['reinstall_os'])) {
         $imageId = (int) $params['reinstall_os'];
     }
-    return _novaix_action_and_wait($params, 'reinstall', [
+
+    $password = $params['password'] ?? '';
+    if (empty($password)) {
+        $password = function_exists('rand_str') ? rand_str(12) : substr(str_shuffle('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'), 0, 12);
+    }
+
+    $result = _novaix_action_and_wait($params, 'reinstall', [
         'image_id' => $imageId,
-        'password' => $params['password'] ?? '',
+        'password' => $password,
     ]);
+
+    if ($result['status'] === 'success') {
+        $encrypted = function_exists('password_encrypt') ? password_encrypt($password) : $password;
+        _novaix_update_host_link($params['hostid'], ['password' => $encrypted]);
+    }
+
+    return $result;
 }
 
 function novaix_CrackPassword($params, $newPass = '')

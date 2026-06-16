@@ -105,10 +105,10 @@ function novaix_CreateAccount($params)
     }
 
     $update = ['username' => 'root'];
-    if (function_exists('password_encrypt')) {
+    if (function_exists('cmf_encrypt')) {
+        $update['password'] = cmf_encrypt($password);
+    } elseif (function_exists('password_encrypt')) {
         $update['password'] = password_encrypt($password);
-    } elseif (function_exists('cmf_password')) {
-        $update['password'] = cmf_password($password);
     } else {
         $update['password'] = $password;
     }
@@ -189,10 +189,28 @@ function novaix_Reinstall($params)
     if (!empty($params['reinstall_os'])) {
         $imageId = (int) $params['reinstall_os'];
     }
-    return _novaix_action_and_wait($params, 'reinstall', [
+
+    $password = $params['password'] ?? '';
+    if (empty($password)) {
+        $password = _novaix_rand_password(12);
+    }
+
+    $result = _novaix_action_and_wait($params, 'reinstall', [
         'image_id' => $imageId,
-        'password' => $params['password'] ?? '',
+        'password' => $password,
     ]);
+
+    if ($result['status'] === 'success') {
+        $encrypted = $password;
+        if (function_exists('cmf_encrypt')) {
+            $encrypted = cmf_encrypt($password);
+        } elseif (function_exists('password_encrypt')) {
+            $encrypted = password_encrypt($password);
+        }
+        _novaix_update_host($params['hostid'], ['password' => $encrypted]);
+    }
+
+    return $result;
 }
 
 function novaix_CrackPassword($params, $newPass = '')
