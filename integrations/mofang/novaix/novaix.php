@@ -8,6 +8,7 @@
 const NOVAIX_OK             = 0;
 const NOVAIX_CREATE_TIMEOUT = 180;
 const NOVAIX_ACTION_TIMEOUT = 60;
+const NOVAIX_HEAVY_TIMEOUT  = 180;
 const NOVAIX_POLL_INTERVAL  = 3;
 
 function novaix_MetaData()
@@ -142,7 +143,7 @@ function novaix_UnsuspendAccount($params)
 
 function novaix_TerminateAccount($params)
 {
-    return _novaix_action_and_wait($params, 'terminate');
+    return _novaix_action_and_wait($params, 'terminate', [], NOVAIX_HEAVY_TIMEOUT);
 }
 
 function novaix_Renew($params)
@@ -197,7 +198,7 @@ function novaix_Reinstall($params)
     $result = _novaix_action_and_wait($params, 'reinstall', [
         'image_id' => $imageId,
         'password' => $password,
-    ]);
+    ], NOVAIX_HEAVY_TIMEOUT);
 
     if ($result['status'] === 'success') {
         $encrypted = function_exists('password_encrypt') ? password_encrypt($password) : $password;
@@ -371,7 +372,7 @@ function _novaix_log($message)
     }
 }
 
-function _novaix_action_and_wait($params, $action, $data = [])
+function _novaix_action_and_wait($params, $action, $data = [], $timeout = NOVAIX_ACTION_TIMEOUT)
 {
     $hostId = $params['hostid'];
     $result = _novaix_request($params, 'POST', "/instances/{$hostId}/{$action}?by=external_id", $data);
@@ -382,7 +383,7 @@ function _novaix_action_and_wait($params, $action, $data = [])
     if ($taskId <= 0) {
         return ['status' => 'success', 'msg' => '操作成功'];
     }
-    return _novaix_wait_for_task($params, $taskId);
+    return _novaix_wait_for_task($params, $taskId, $timeout);
 }
 
 function _novaix_wait_for_running($params, $instanceId)
@@ -408,11 +409,11 @@ function _novaix_wait_for_running($params, $instanceId)
     return ['status' => 'error', 'msg' => '等待实例创建超时（' . NOVAIX_CREATE_TIMEOUT . 's），请稍后确认状态'];
 }
 
-function _novaix_wait_for_task($params, $taskId)
+function _novaix_wait_for_task($params, $taskId, $timeout = NOVAIX_ACTION_TIMEOUT)
 {
     $start  = time();
     $errors = 0;
-    while (time() - $start < NOVAIX_ACTION_TIMEOUT) {
+    while (time() - $start < $timeout) {
         sleep(NOVAIX_POLL_INTERVAL);
 
         $resp = _novaix_request($params, 'GET', "/tasks/{$taskId}");
@@ -431,7 +432,7 @@ function _novaix_wait_for_task($params, $taskId)
             return ['status' => 'error', 'msg' => $resp['data']['result'] ?? '任务失败'];
         }
     }
-    return ['status' => 'error', 'msg' => '等待任务完成超时（' . NOVAIX_ACTION_TIMEOUT . 's）'];
+    return ['status' => 'error', 'msg' => '等待任务完成超时（' . $timeout . 's）'];
 }
 
 function _novaix_request($params, $method, $path, $data = [])

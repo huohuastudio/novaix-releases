@@ -14,7 +14,8 @@ if (!defined("WHMCS")) {
 
 const NOVAIX_OK              = 0;
 const NOVAIX_CREATE_TIMEOUT  = 180; // 创建轮询最长等待秒数
-const NOVAIX_ACTION_TIMEOUT  = 60;  // 暂停/恢复/删除/重装等动作轮询最长秒数
+const NOVAIX_ACTION_TIMEOUT  = 60;  // 暂停/恢复等轻量动作轮询最长秒数
+const NOVAIX_HEAVY_TIMEOUT   = 180; // 删除/重装等重量动作轮询最长秒数
 const NOVAIX_POLL_INTERVAL   = 3;   // 轮询间隔秒数
 
 /**
@@ -147,7 +148,7 @@ function novaix_UnsuspendAccount(array $params)
 
 function novaix_TerminateAccount(array $params)
 {
-    return _novaix_action_and_wait($params, 'terminate');
+    return _novaix_action_and_wait($params, 'terminate', [], NOVAIX_HEAVY_TIMEOUT);
 }
 
 function novaix_ChangePassword(array $params)
@@ -216,30 +217,29 @@ function _novaix_simple_action(array $params, string $action, array $data = [])
     }
 }
 
-function _novaix_action_and_wait(array $params, string $action, array $data = [])
+function _novaix_action_and_wait(array $params, string $action, array $data = [], int $timeout = NOVAIX_ACTION_TIMEOUT)
 {
     try {
         $serviceID = $params['serviceid'];
         $result = _novaix_request($params, 'POST',
             "/instances/{$serviceID}/{$action}?by=external_id", $data);
-        return _novaix_wait_for_task_from_result($params, $result);
+        return _novaix_wait_for_task_from_result($params, $result, $timeout);
     } catch (Exception $e) {
         logModuleCall('novaix', $action, $params, $e->getMessage(), $e->getTraceAsString());
         return $e->getMessage();
     }
 }
 
-function _novaix_wait_for_task_from_result(array $params, $result)
+function _novaix_wait_for_task_from_result(array $params, $result, int $timeout = NOVAIX_ACTION_TIMEOUT)
 {
     if (!is_array($result) || ($result['code'] ?? -1) !== NOVAIX_OK) {
         return is_array($result) ? ($result['message'] ?? '请求失败') : '请求失败';
     }
     $taskID = (int) ($result['data']['task_id'] ?? 0);
     if ($taskID <= 0) {
-        // 响应不带 task_id（如同步操作），视为已完成
         return 'success';
     }
-    return _novaix_wait_for_task($params, $taskID, NOVAIX_ACTION_TIMEOUT);
+    return _novaix_wait_for_task($params, $taskID, $timeout);
 }
 
 function _novaix_string_result($result)
