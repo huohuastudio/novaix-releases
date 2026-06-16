@@ -12,7 +12,8 @@ NovaIx 提供 **Provisioning API**，让第三方财务系统/分销面板能自
 
 | 系统 | 路径 | 状态 |
 |------|------|------|
-| 智简魔方（IDCsmart） | [./mofang/](./mofang/) | 已实现，待真实环境验证 |
+| 智简魔方 V10（ZJMF-CBAP） | [./mofang/](./mofang/) | 已实现，待真实环境验证 |
+| 智简魔方财务 2.x | [./mofang-legacy/](./mofang-legacy/) | 已实现，待真实环境验证 |
 | WHMCS | [./whmcs/](./whmcs/) | 已实现，待真实环境验证 |
 
 ## 自己接入
