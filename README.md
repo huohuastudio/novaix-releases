@@ -40,18 +40,18 @@ Novaix 是一套商业化 IDC 管理系统，面向中小型 VPS 服务商，提
 
 | 文件名 | 架构 | 说明 |
 |--------|------|------|
-| `novaix-linux-amd64` | x86_64 | 大多数云服务器 |
-| `novaix-linux-arm64` | ARM64 | ARM 架构服务器 |
+| `novaix_linux_amd64.tar.gz` | x86_64 | 大多数云服务器 |
+| `novaix_linux_arm64.tar.gz` | ARM64 | ARM 架构服务器 |
 
 ### 快速开始
 
 ```bash
-# 1. 下载（以 amd64 为例）
-wget https://github.com/huohuastudio/novaix-releases/releases/latest/download/novaix-linux-amd64
-chmod +x novaix-linux-amd64
+# 1. 下载并解压（以 amd64 为例）
+wget https://github.com/huohuastudio/novaix-releases/releases/latest/download/novaix_linux_amd64.tar.gz
+tar -xzf novaix_linux_amd64.tar.gz
 
 # 2. 运行
-./novaix-linux-amd64
+./novaix_linux_amd64/novaix
 ```
 
 首次启动时，程序会在当前目录自动生成默认配置文件，使用 SQLite 数据库，无需额外依赖。
