@@ -1,0 +1,48 @@
+<link rel="stylesheet" href="/plugins/reserver/novaix/template/clientarea/pc/default/css/list.css">
+<div class="template novaix_product_list">
+  <div class="main-card">
+    <div class="main-card-title">
+      <span class="title-text">{{lang.novaix_title}}</span>
+    </div>
+    <div class="main-card-search">
+      <el-select v-model="params.status" style="width:3.2rem;" clearable @change="getList" :placeholder="lang.novaix_select_status">
+        <el-option v-for="item in statusSelect" :key="item.status" :value="item.status" :label="item.label"></el-option>
+      </el-select>
+      <el-input v-model="params.keywords" style="width:3.2rem;" :placeholder="lang.novaix_search_placeholder" clearable @clear="clearKey" @keyup.enter.native="inputChange"></el-input>
+      <el-button class="search-btn" @click="inputChange" :loading="loading">{{lang.novaix_query}}</el-button>
+    </div>
+    <el-table v-loading="loading" :data="commonList" style="width:100%;margin-bottom:.2rem;" @row-click="toDetail">
+      <el-table-column prop="id" label="ID" width="80" align="left">
+        <template slot-scope="scope"><span class="column-id">{{scope.row.id}}</span></template>
+      </el-table-column>
+      <el-table-column prop="product_name" :label="lang.novaix_product_name" min-width="180" :show-overflow-tooltip="true">
+        <template slot-scope="scope">
+          <div class="cloud-name">
+            <span class="packge-name">{{scope.row.product_name}}</span>
+            <span class="name">{{scope.row.name}}</span>
+          </div>
+        </template>
+      </el-table-column>
+      <el-table-column :label="lang.novaix_finance_renew" min-width="160" :show-overflow-tooltip="true">
+        <template slot-scope="{row}">
+          <template v-if="row.billing_cycle">{{commonData.currency_prefix}}{{row.renew_amount}}/{{row.billing_cycle_name}}</template>
+          <template v-else>{{commonData.currency_prefix}}{{row.first_payment_amount}}</template>
+        </template>
+      </el-table-column>
+      <el-table-column :label="lang.novaix_finance_due" width="180">
+        <template slot-scope="scope">{{scope.row.due_time | formateTime}}</template>
+      </el-table-column>
+      <el-table-column :label="lang.novaix_info_status" width="120" align="left">
+        <template slot-scope="scope">
+          <div class="status" :style="'color:'+statusMap[scope.row.status].color+';background:'+statusMap[scope.row.status].bg">
+            {{statusMap[scope.row.status].text}}
+          </div>
+        </template>
+      </el-table-column>
+    </el-table>
+    <pagination :page-data="params" @sizechange="sizeChange" @currentchange="currentChange" v-if="params.total"></pagination>
+  </div>
+</div>
+<script src="/plugins/reserver/novaix/template/clientarea/pc/default/lang/index.js"></script>
+<script src="/plugins/reserver/novaix/template/clientarea/pc/default/api/novaix.js"></script>
+<script src="/plugins/reserver/novaix/template/clientarea/pc/default/js/list.js"></script>

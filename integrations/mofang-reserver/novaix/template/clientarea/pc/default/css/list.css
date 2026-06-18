@@ -1,0 +1,11 @@
+.novaix_product_list { padding: 0; }
+.novaix_product_list .main-card { background: #fff; border-radius: .08rem; padding: .2rem .3rem; }
+.novaix_product_list .main-card-title { display: flex; align-items: center; justify-content: space-between; margin-bottom: .2rem; }
+.novaix_product_list .title-text { font-size: .2rem; font-weight: 600; color: #333; }
+.novaix_product_list .main-card-search { display: flex; align-items: center; justify-content: flex-end; margin-bottom: .2rem; gap: .1rem; }
+.novaix_product_list .search-btn { background: #0052D9; color: #fff; border: none; }
+.novaix_product_list .cloud-name { display: flex; flex-direction: column; }
+.novaix_product_list .cloud-name .packge-name { font-size: .14rem; color: #333; font-weight: 500; }
+.novaix_product_list .cloud-name .name { font-size: .12rem; color: #999; margin-top: .02rem; }
+.novaix_product_list .status { display: inline-block; padding: .02rem .1rem; border-radius: .04rem; font-size: .12rem; }
+.novaix_product_list .column-id { color: #999; }

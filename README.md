@@ -133,7 +133,9 @@ my-theme.zip
 | Provisioning API 参考 | [`integrations/provisioning-api.md`](./integrations/provisioning-api.md) | 完整接口说明、认证方式、幂等性、错误码 |
 | Webhook 回调与验签 | [`integrations/webhook.md`](./integrations/webhook.md) | 异步通知格式与 HMAC-SHA256 验签 |
 | Webhook 接收端示例 | [`integrations/webhook-examples/`](./integrations/webhook-examples/) | PHP / Python / Node 三种语言的参考实现 |
-| 智简魔方模块 | [`integrations/mofang/`](./integrations/mofang/) | IDCsmart 魔方对接模块 |
+| 魔方 V10 上游供应商模块 | [`integrations/mofang-reserver/`](./integrations/mofang-reserver/) | reserver 模式，自动同步商品、加价转售（推荐） |
+| 魔方 V10 服务器模块 | [`integrations/mofang/`](./integrations/mofang/) | server 模式，手动配置的传统对接方式 |
+| 魔方 2.x 模块 | [`integrations/mofang-legacy/`](./integrations/mofang-legacy/) | 适用于魔方财务 2.x 版本 |
 | WHMCS 模块 | [`integrations/whmcs/`](./integrations/whmcs/) | WHMCS Provisioning 模块 |
 
 如需对接其他系统，请参阅 [Provisioning API 参考](./integrations/provisioning-api.md) 和已有模块的实现。

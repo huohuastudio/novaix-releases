@@ -1,0 +1,177 @@
+<link rel="stylesheet" href="/plugins/reserver/novaix/template/clientarea/pc/default/css/detail.css">
+
+<div class="template novaix_product_detail" style="display:none;">
+  <div class="main-card">
+    <!-- 标题栏 -->
+    <div class="main-card-title">
+      <div class="left">
+        <span class="back" @click="back" style="cursor:pointer;font-size:.2rem;">&#8592;</span>
+        <span class="title">{{hostData.name || lang.novaix_detail_title}}</span>
+        <span class="tag" v-if="hostData.status" :style="'color:'+statusMap[hostData.status].color+';background:'+statusMap[hostData.status].bg">
+          {{statusMap[hostData.status].text}}
+        </span>
+      </div>
+      <span class="power-dot" :class="postPowerStatus"></span>
+    </div>
+
+    <!-- 财务信息 -->
+    <div class="finance-info">
+      <div class="box">
+        <div class="item">
+          <span class="label">{{lang.novaix_finance_active}}：</span>
+          <span>{{hostData.active_time | formateTime}}</span>
+        </div>
+        <div class="item">
+          <span class="label">{{lang.novaix_finance_amount}}：</span>
+          <span>{{commonData.currency_prefix}}{{hostData.first_payment_amount}}</span>
+        </div>
+        <div class="item">
+          <span class="label">{{lang.novaix_finance_due}}：</span>
+          <span>{{hostData.due_time | formateTime}}</span>
+        </div>
+        <div class="item">
+          <span class="label">{{lang.novaix_finance_name}}：</span>
+          <span>{{hostData.host_name}}</span>
+        </div>
+        <div class="item" v-if="hostData.renew_amount">
+          <span class="label">{{lang.novaix_finance_renew}}：</span>
+          <span>{{commonData.currency_prefix}}{{hostData.renew_amount}}/{{hostData.billing_cycle_name}}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tabs -->
+    <el-tabs v-model="activeName" v-show="!initLoading">
+      <!-- 基础信息 -->
+      <el-tab-pane :label="lang.novaix_tab_info" name="info">
+        <div class="info-grid">
+          <div class="info-item" v-if="host.dedicate_ip">
+            <span class="info-label">{{lang.novaix_info_ip}}</span>
+            <span class="info-value">
+              {{host.dedicate_ip}}
+              <i class="el-icon-document-copy copy-icon" @click="copyText(host.dedicate_ip)"></i>
+            </span>
+          </div>
+          <div class="info-item" v-if="host.assign_ip">
+            <span class="info-label">{{lang.novaix_info_ipv6}}</span>
+            <span class="info-value">{{host.assign_ip}}</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">{{lang.novaix_info_cpu}}</span>
+            <span class="info-value">{{host.cpu}} Core</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">{{lang.novaix_info_memory}}</span>
+            <span class="info-value">{{formatMemory(host.memory)}}</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">{{lang.novaix_info_disk}}</span>
+            <span class="info-value">{{host.disk}} GB</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">{{lang.novaix_info_bandwidth}}</span>
+            <span class="info-value">{{host.bandwidth}} Mbps</span>
+          </div>
+          <div class="info-item" v-if="host.os_type">
+            <span class="info-label">{{lang.novaix_info_os}}</span>
+            <span class="info-value">{{host.os_type}}</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">{{lang.novaix_info_status}}</span>
+            <span class="info-value">{{powerStatusText}}</span>
+          </div>
+        </div>
+      </el-tab-pane>
+
+      <!-- 管理 -->
+      <el-tab-pane :label="lang.novaix_tab_manage" name="manage" v-if="hostData.status === 'Active'">
+        <div class="manage-content">
+          <!-- 电源操作 -->
+          <div class="manage-item">
+            <div class="item-top">
+              <el-select v-model="powerAction" style="flex:1;">
+                <el-option v-for="item in powerOptions" :key="item.func" :value="item.func" :label="item.name"></el-option>
+              </el-select>
+              <div class="item-top-btn" @click="showPowerDialog">{{lang.novaix_btn_execute}}</div>
+            </div>
+            <div class="item-bottom">{{lang.novaix_power_tip}}</div>
+          </div>
+          <!-- VNC -->
+          <div class="manage-item">
+            <div class="item-top-btn" @click="doVnc">{{lang.novaix_btn_vnc}}</div>
+            <div class="item-bottom">{{lang.novaix_vnc_tip}}</div>
+          </div>
+          <!-- 重装系统 -->
+          <div class="manage-item">
+            <div class="item-top-btn" @click="showReinstall">{{lang.novaix_btn_reinstall}}</div>
+            <div class="item-bottom">{{lang.novaix_reinstall_warn}}</div>
+          </div>
+          <!-- 重置密码 -->
+          <div class="manage-item">
+            <div class="item-top-btn" @click="showRePass">{{lang.novaix_btn_crack_pass}}</div>
+            <div class="item-bottom">{{lang.novaix_reset_pass_tip}}</div>
+          </div>
+        </div>
+      </el-tab-pane>
+    </el-tabs>
+
+    <!-- 电源操作确认弹窗 -->
+    <el-dialog width="5rem" :visible.sync="powerDialogVisible" :show-close="false">
+      <div class="dialog-title">{{lang.novaix_power_title}}</div>
+      <div class="dialog-main">
+        <div class="label">{{lang.novaix_power_confirm}}</div>
+        <div class="value">{{hostData.host_name}} — {{powerActionName}}</div>
+      </div>
+      <div class="dialog-footer">
+        <div class="btn-ok" @click="doPower" v-loading="actionLoading">{{lang.novaix_btn_confirm}}</div>
+        <div class="btn-no" @click="powerDialogVisible=false">{{lang.novaix_btn_cancel}}</div>
+      </div>
+    </el-dialog>
+
+    <!-- 重装系统弹窗 -->
+    <el-dialog width="5rem" :visible.sync="reinstallDialogVisible" :show-close="false">
+      <div class="dialog-title">{{lang.novaix_reinstall_title}}</div>
+      <div class="dialog-main">
+        <div class="label">{{lang.novaix_reinstall_select_os}}</div>
+        <div class="os-content">
+          <el-select class="os-select" v-model="reinstallData.osGroup" @change="osGroupChange" :placeholder="lang.novaix_reinstall_select_os">
+            <el-option v-for="g in osGroups" :key="g.os" :value="g.os" :label="g.os"></el-option>
+          </el-select>
+          <el-select class="os-select" v-model="reinstallData.imageId" :placeholder="lang.novaix_reinstall_select_ver">
+            <el-option v-for="img in osVersions" :key="img.id" :value="img.id" :label="img.name + ' ' + img.version"></el-option>
+          </el-select>
+        </div>
+        <div class="alert">
+          <el-alert :title="lang.novaix_reinstall_warn" type="warning" show-icon :closable="false"></el-alert>
+        </div>
+      </div>
+      <div class="dialog-footer">
+        <div class="btn-ok" @click="doReinstall" v-loading="actionLoading">{{lang.novaix_btn_confirm}}</div>
+        <div class="btn-no" @click="reinstallDialogVisible=false">{{lang.novaix_btn_cancel}}</div>
+      </div>
+    </el-dialog>
+
+    <!-- 重置密码弹窗 -->
+    <el-dialog width="5rem" :visible.sync="rePassDialogVisible" :show-close="false">
+      <div class="dialog-title">{{lang.novaix_reset_pass_title}}</div>
+      <div class="dialog-main">
+        <div class="label">{{lang.novaix_reset_pass_input}}</div>
+        <el-input class="pass-input" v-model="rePassData.password" :placeholder="lang.novaix_reset_pass_input">
+          <div class="pass-btn" slot="suffix" @click="autoPass">{{lang.novaix_reset_pass_auto}}</div>
+        </el-input>
+        <div class="item-bottom" style="margin-top:.1rem;">{{lang.novaix_reset_pass_tip}}</div>
+      </div>
+      <div class="dialog-footer">
+        <div class="btn-ok" @click="doRePass" v-loading="actionLoading">{{lang.novaix_btn_confirm}}</div>
+        <div class="btn-no" @click="rePassDialogVisible=false">{{lang.novaix_btn_cancel}}</div>
+      </div>
+    </el-dialog>
+
+    <!-- 安全验证 -->
+    <safe-confirm ref="safeRef" :password.sync="client_operate_password" @confirm="handleSafeConfirm"></safe-confirm>
+  </div>
+</div>
+
+<script src="/plugins/reserver/novaix/template/clientarea/pc/default/lang/index.js"></script>
+<script src="/plugins/reserver/novaix/template/clientarea/pc/default/api/novaix.js"></script>
+<script src="/plugins/reserver/novaix/template/clientarea/pc/default/js/detail.js"></script>

@@ -1,0 +1,61 @@
+.novaix_product_detail { padding: 0; }
+.novaix_product_detail .main-card { background: #fff; border-radius: .08rem; padding: .2rem .3rem; }
+
+/* 顶部标题栏 */
+.novaix_product_detail .main-card-title { display: flex; align-items: center; justify-content: space-between; margin-bottom: .15rem; }
+.novaix_product_detail .main-card-title .left { display: flex; align-items: center; gap: .1rem; }
+.novaix_product_detail .back { width: .2rem; height: .2rem; cursor: pointer; opacity: .6; }
+.novaix_product_detail .back:hover { opacity: 1; }
+.novaix_product_detail .title { font-size: .2rem; font-weight: 600; color: #333; }
+.novaix_product_detail .tag { padding: .02rem .1rem; border-radius: .04rem; font-size: .12rem; margin-left: .08rem; }
+
+/* 运行状态灯 */
+.novaix_product_detail .power-dot { display: inline-block; width: .1rem; height: .1rem; border-radius: 50%; }
+.novaix_product_detail .power-dot.running { background: #67C23A; box-shadow: 0 0 .04rem #67C23A; }
+.novaix_product_detail .power-dot.stopped { background: #909399; }
+.novaix_product_detail .power-dot.frozen { background: #E6A23C; }
+.novaix_product_detail .power-dot.creating, .novaix_product_detail .power-dot.operating { background: #409EFF; animation: blink 1s infinite; }
+.novaix_product_detail .power-dot.error { background: #F56C6C; }
+@keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: .3; } }
+
+/* 财务信息 */
+.novaix_product_detail .finance-info { padding: .15rem 0; border-bottom: 1px solid #f0f0f0; margin-bottom: .15rem; }
+.novaix_product_detail .finance-info .box { display: grid; grid-template-columns: repeat(auto-fill, minmax(2.8rem, 1fr)); gap: .12rem .3rem; }
+.novaix_product_detail .finance-info .item { display: flex; align-items: center; font-size: .14rem; color: #666; }
+.novaix_product_detail .finance-info .label { color: #999; margin-right: .06rem; white-space: nowrap; }
+
+/* 基础信息网格 */
+.novaix_product_detail .info-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(2.5rem, 1fr)); gap: .16rem .3rem; padding: .15rem 0; }
+.novaix_product_detail .info-item { display: flex; flex-direction: column; gap: .04rem; }
+.novaix_product_detail .info-item .info-label { font-size: .12rem; color: #999; }
+.novaix_product_detail .info-item .info-value { font-size: .14rem; color: #333; word-break: break-all; }
+.novaix_product_detail .info-item .copy-icon { font-size: .14rem; margin-left: .04rem; cursor: pointer; color: #0052D9; }
+
+/* 管理区 */
+.novaix_product_detail .manage-content { display: flex; flex-wrap: wrap; gap: .2rem; padding: .15rem 0; }
+.novaix_product_detail .manage-item { flex: 0 0 calc(50% - .1rem); border: 1px solid #eee; border-radius: .08rem; padding: .2rem; }
+.novaix_product_detail .manage-item .item-top { display: flex; align-items: center; gap: .1rem; margin-bottom: .1rem; }
+.novaix_product_detail .manage-item .item-top-btn { background: #0052D9; color: #fff; padding: .08rem .2rem; border-radius: .04rem; cursor: pointer; font-size: .14rem; text-align: center; }
+.novaix_product_detail .manage-item .item-top-btn:hover { background: #003DA5; }
+.novaix_product_detail .manage-item .item-bottom { font-size: .12rem; color: #999; line-height: 1.6; }
+
+/* 弹窗 */
+.novaix_product_detail .dialog-title { font-size: .18rem; font-weight: 600; color: #333; padding-bottom: .15rem; border-bottom: 1px solid #f0f0f0; }
+.novaix_product_detail .dialog-main { padding: .2rem 0; }
+.novaix_product_detail .dialog-main .label { font-size: .14rem; color: #666; margin-bottom: .1rem; }
+.novaix_product_detail .dialog-main .value { font-size: .14rem; color: #333; }
+.novaix_product_detail .dialog-footer { display: flex; justify-content: flex-end; gap: .1rem; padding-top: .15rem; border-top: 1px solid #f0f0f0; }
+.novaix_product_detail .btn-ok { background: #0052D9; color: #fff; padding: .08rem .24rem; border-radius: .04rem; cursor: pointer; font-size: .14rem; border: none; }
+.novaix_product_detail .btn-ok:hover { background: #003DA5; }
+.novaix_product_detail .btn-no { background: #fff; color: #666; padding: .08rem .24rem; border-radius: .04rem; cursor: pointer; font-size: .14rem; border: 1px solid #ddd; }
+.novaix_product_detail .btn-no:hover { border-color: #0052D9; color: #0052D9; }
+
+/* 重装系统 OS 选择 */
+.novaix_product_detail .os-content { display: flex; gap: .1rem; }
+.novaix_product_detail .os-select { flex: 1; }
+.novaix_product_detail .alert { margin-top: .1rem; }
+
+/* 密码输入 */
+.novaix_product_detail .pass-input { width: 100%; }
+.novaix_product_detail .pass-btn { color: #0052D9; cursor: pointer; font-size: .12rem; padding: 0 .1rem; white-space: nowrap; }
+.novaix_product_detail .pass-btn:hover { color: #003DA5; }
