@@ -126,6 +126,8 @@ my-theme.zip
 
 ## 第三方集成
 
+> **推荐直接使用 Novaix** — Novaix 自身已提供完整的用户前台、套餐管理、订单计费、支付集成、工单系统等功能，大多数场景下无需额外对接第三方财务系统。仅当你已有现成的财务系统且不希望迁移时，才建议使用下方的集成模块。
+
 [`integrations/`](./integrations/) 目录提供了与第三方财务/分销系统对接所需的文档和模块：
 
 | 内容 | 路径 | 说明 |
@@ -133,7 +135,7 @@ my-theme.zip
 | Provisioning API 参考 | [`integrations/provisioning-api.md`](./integrations/provisioning-api.md) | 完整接口说明、认证方式、幂等性、错误码 |
 | Webhook 回调与验签 | [`integrations/webhook.md`](./integrations/webhook.md) | 异步通知格式与 HMAC-SHA256 验签 |
 | Webhook 接收端示例 | [`integrations/webhook-examples/`](./integrations/webhook-examples/) | PHP / Python / Node 三种语言的参考实现 |
-| 魔方 V10 上游供应商模块 | [`integrations/mofang-reserver/`](./integrations/mofang-reserver/) | reserver 模式，自动同步商品、加价转售（推荐） |
+| 魔方 V10 上游供应商模块 | [`integrations/mofang-reserver/`](./integrations/mofang-reserver/) | reserver 模式，自动同步商品、加价转售（实验性） |
 | 魔方 V10 服务器模块 | [`integrations/mofang/`](./integrations/mofang/) | server 模式，手动配置的传统对接方式 |
 | 魔方 2.x 模块 | [`integrations/mofang-legacy/`](./integrations/mofang-legacy/) | 适用于魔方财务 2.x 版本 |
 | WHMCS 模块 | [`integrations/whmcs/`](./integrations/whmcs/) | WHMCS Provisioning 模块 |
