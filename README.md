@@ -145,9 +145,10 @@ my-theme.zip
 
 ## 联系我们
 
-- 官网：[huohuastudio.com](https://huohuastudio.com)
-- 邮箱：[support@huohuastudio.com](support@huohuastudio.com)
+- 官网：[novaix.cc](https://novaix.cc)
+- 文档：[docs.huohuastudio.com/novaix](https://docs.huohuastudio.com/novaix)
+- 邮箱：[support@huohuastudio.com](mailto:support@huohuastudio.com)
 
 ## License
 
-Copyright &copy; [Spark Studio](https://huohuastudio.com). All rights reserved.
+Copyright &copy; [Spark Studio](https://novaix.cc). All rights reserved.
