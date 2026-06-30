@@ -45,7 +45,6 @@ Novaix 采用 Freemium 模式——部署即用，无需注册账号。未激活
 | 节点数 | ≤ 2 | 不限 |
 | HA 高可用（自动疏散） | — | ✓ |
 | 多数据库（MySQL / PostgreSQL） | — | ✓ |
-| 外部集成（WHMCS / 魔方等） | — | ✓ |
 | 告警通知 | — | ✓ |
 | 私有网络（VPC） | — | ✓ |
 | 代理商系统 | — | ✓ |
@@ -144,23 +143,23 @@ my-theme.zip
 - 不包含恶意代码或外部跟踪脚本
 - zip 大小不超过 50MB
 
-## 第三方集成
+## 第三方集成（不再维护）
 
-> **推荐直接使用 Novaix** — Novaix 自身已提供完整的用户前台、套餐管理、订单计费、支付集成、工单系统等功能，大多数场景下无需额外对接第三方财务系统。仅当你已有现成的财务系统且不希望迁移时，才建议使用下方的集成模块。
+> **推荐直接使用 Novaix** — Novaix 自身已提供完整的用户前台、套餐管理、订单计费、支付集成、工单系统等功能，大多数场景下无需额外对接第三方财务系统。
 
-[`integrations/`](./integrations/) 目录提供了与第三方财务/分销系统对接所需的文档和模块：
+> **⚠️ 以下集成模块已停止维护**，仅供已有对接需求的用户参考。WHMCS 模块和魔方模块不会继续更新，可能与新版本存在兼容性问题。Provisioning API 和 Webhook 接口仍保持稳定。
+
+[`integrations/`](./integrations/) 目录提供了与第三方系统对接所需的文档和模块：
 
 | 内容 | 路径 | 说明 |
 |------|------|------|
 | Provisioning API 参考 | [`integrations/provisioning-api.md`](./integrations/provisioning-api.md) | 完整接口说明、认证方式、幂等性、错误码 |
 | Webhook 回调与验签 | [`integrations/webhook.md`](./integrations/webhook.md) | 异步通知格式与 HMAC-SHA256 验签 |
 | Webhook 接收端示例 | [`integrations/webhook-examples/`](./integrations/webhook-examples/) | PHP / Python / Node 三种语言的参考实现 |
-| 魔方 V10 上游供应商模块 | [`integrations/mofang-reserver/`](./integrations/mofang-reserver/) | reserver 模式，自动同步商品、加价转售（实验性） |
-| 魔方 V10 服务器模块 | [`integrations/mofang/`](./integrations/mofang/) | server 模式，手动配置的传统对接方式 |
-| 魔方 2.x 模块 | [`integrations/mofang-legacy/`](./integrations/mofang-legacy/) | 适用于魔方财务 2.x 版本 |
-| WHMCS 模块 | [`integrations/whmcs/`](./integrations/whmcs/) | WHMCS Provisioning 模块 |
-
-如需对接其他系统，请参阅 [Provisioning API 参考](./integrations/provisioning-api.md) 和已有模块的实现。
+| 魔方 V10 上游供应商模块 | [`integrations/mofang-reserver/`](./integrations/mofang-reserver/) | ⚠️ 已停止维护 |
+| 魔方 V10 服务器模块 | [`integrations/mofang/`](./integrations/mofang/) | ⚠️ 已停止维护 |
+| 魔方 2.x 模块 | [`integrations/mofang-legacy/`](./integrations/mofang-legacy/) | ⚠️ 已停止维护 |
+| WHMCS 模块 | [`integrations/whmcs/`](./integrations/whmcs/) | ⚠️ 已停止维护 |
 
 ## 联系我们
 
