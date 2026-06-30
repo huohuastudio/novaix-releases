@@ -6,7 +6,45 @@ Novaix 是一套商业化 IDC 管理系统，面向中小型 VPS 服务商，提
 
 系统采用 Go + React 单体架构，编译为单个二进制文件，开箱即用。部署即可使用免费版，在管理后台输入激活码升级授权版，无需重启。
 
-## 功能特性
+## 快速开始
+
+```bash
+# 下载并解压（以 amd64 为例）
+wget https://github.com/huohuastudio/novaix-releases/releases/latest/download/novaix_linux_amd64.tar.gz
+tar -xzf novaix_linux_amd64.tar.gz
+
+# 运行
+./novaix_linux_amd64/novaix
+```
+
+首次启动时，程序会在当前目录自动生成默认配置文件，使用 SQLite 数据库，无需额外依赖。
+
+| 文件名 | 架构 | 说明 |
+|--------|------|------|
+| `novaix_linux_amd64.tar.gz` | x86_64 | 大多数云服务器 |
+| `novaix_linux_arm64.tar.gz` | ARM64 | ARM 架构服务器 |
+
+前往 [Releases](https://github.com/huohuastudio/novaix-releases/releases) 下载最新版本。详细部署指南请参阅[文档](https://docs.huohuastudio.com/novaix)。
+
+## 免费版与授权版
+
+部署即用，无需注册。免费版包含实例管理、套餐计费、订单支付、工单系统、CMS 等核心功能，足够运营一个小型 VPS 业务。
+
+| 限制项 | 免费版 | 授权版 |
+|--------|--------|--------|
+| 节点数 | ≤ 2 | 不限 |
+| HA 高可用（自动疏散） | — | ✓ |
+| 多数据库（MySQL / PostgreSQL） | — | ✓ |
+| 告警通知 | — | ✓ |
+| 私有网络（VPC） | — | ✓ |
+| 代理商系统 | — | ✓ |
+| 共享 IP / NAT | — | ✓ |
+| 插件系统 | — | ✓ |
+
+前往 [Spark Studio 官网](https://huohuastudio.com) 获取激活码。
+
+<details>
+<summary><strong>功能特性</strong></summary>
 
 - **节点管理** — 多节点接入与监控，支持资源统计与告警，一键测试 SSH/服务端连通性
 - **节点组与集群** — 节点分组管理，同组节点组成集群，支持实例在线热迁移
@@ -30,78 +68,20 @@ Novaix 是一套商业化 IDC 管理系统，面向中小型 VPS 服务商，提
 - **对象存储** — S3 兼容存储（AWS S3、阿里云 OSS、腾讯云 COS、MinIO 等），用于镜像/ISO 远程归档与掉盘恢复
 - **任务管理** — 任务大屏展示统计卡片、多状态筛选、WebSocket 实时日志流与自动刷新
 - **工单系统** — 用户与管理员沟通渠道
-- **CMS 内容管理** — 公告、文章、单页面、帮助中心、FAQ、导航菜单、轮播图、合作伙伴、客户评价、数据中心、友情链接、更新日志、团队成员、品牌素材等 14 个模块，全部提供公开 API 供第三方主题动态渲染；默认主题内置完整的门户端展示页面（文章、帮助中心、FAQ、更新日志、数据中心等）
-- **CLI 管理工具** — 内置终端管理命令，支持密码重置、插件启停、主题切换与重置、设置管理、系统信息查看等，适用于忘记密码、插件异常或主题白屏等紧急运维场景
+- **CMS 内容管理** — 公告、文章、单页面、帮助中心、FAQ、导航菜单、轮播图、合作伙伴、客户评价、数据中心、友情链接、更新日志、团队成员、品牌素材等 14 个模块，全部提供公开 API 供第三方主题动态渲染
+- **CLI 管理工具** — 内置终端管理命令，支持密码重置、插件启停、主题切换与重置、设置管理、系统信息查看等
 - **系统在线更新** — 一键在线升级，支持数据库迁移失败自动回滚（SQLite）与 crash recovery（MySQL / PostgreSQL）
 - **后台路径自定义** — 管理后台路径可配置（如 `/manage`、`/control`），增强安全性
 - **系统设置** — 站点信息、维护模式等，各服务渠道采用统一的插件化 Provider 动态配置
 
-## 免费版与授权版
+</details>
 
-Novaix 采用 Freemium 模式——部署即用，无需注册账号。未激活时为免费版，在管理后台输入激活码即可升级为授权版，全程无需重启服务。
-
-| 限制项 | 免费版 | 授权版 |
-|--------|--------|--------|
-| 节点数 | ≤ 2 | 不限 |
-| HA 高可用（自动疏散） | — | ✓ |
-| 多数据库（MySQL / PostgreSQL） | — | ✓ |
-| 告警通知 | — | ✓ |
-| 私有网络（VPC） | — | ✓ |
-| 代理商系统 | — | ✓ |
-| 共享 IP / NAT | — | ✓ |
-| 插件系统 | — | ✓ |
-
-免费版包含完整的实例管理、套餐计费、订单支付、工单系统、CMS 等核心功能，足够运营一个小型 VPS 业务。前往 [Spark Studio 官网](https://huohuastudio.com) 获取激活码。
-
-## 下载安装
-
-前往 [Releases](https://github.com/huohuastudio/novaix-releases/releases) 页面，根据你的服务器架构下载对应的安装包：
-
-| 文件名 | 架构 | 说明 |
-|--------|------|------|
-| `novaix_linux_amd64.tar.gz` | x86_64 | 大多数云服务器 |
-| `novaix_linux_arm64.tar.gz` | ARM64 | ARM 架构服务器 |
-
-### 快速开始
-
-```bash
-# 1. 下载并解压（以 amd64 为例）
-wget https://github.com/huohuastudio/novaix-releases/releases/latest/download/novaix_linux_amd64.tar.gz
-tar -xzf novaix_linux_amd64.tar.gz
-
-# 2. 运行
-./novaix_linux_amd64/novaix
-```
-
-首次启动时，程序会在当前目录自动生成默认配置文件，使用 SQLite 数据库，无需额外依赖。也可配置为 MySQL 或 PostgreSQL。
-
-### 反向代理（Nginx）
-
-```nginx
-server {
-    listen 80;
-    server_name your-domain.com;
-
-    location / {
-        proxy_pass http://127.0.0.1:8080;
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto $scheme;
-
-        # WebSocket 支持（终端、VNC 等）
-        proxy_http_version 1.1;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection "upgrade";
-    }
-}
-```
-
-## 主题市场
+<details>
+<summary><strong>主题市场</strong></summary>
 
 Novaix 支持通过主题系统自定义前端界面。前端源码开源在 [novaix-ui](https://github.com/huohuastudio/novaix-ui) 仓库，你可以基于它开发自己的主题。
 
-### 提交主题到市场
+#### 提交主题到市场
 
 如果你开发了一个主题并希望上架到 Novaix 主题市场，请通过 PR 提交：
 
@@ -136,18 +116,14 @@ my-theme.zip
 
 > `download_url` 中的文件名必须与你放到 `themes/` 目录下的 zip 文件名一致。`requires` 字段建议使用 `~x.y.z` 约束，表示兼容该 patch 版本范围。
 
-**审核标准：**
+**审核标准：** 主题能正常安装和使用、`theme.json` 字段完整且格式正确、不包含恶意代码或外部跟踪脚本、zip 大小不超过 50MB。
 
-- 主题能正常安装和使用
-- `theme.json` 字段完整且格式正确
-- 不包含恶意代码或外部跟踪脚本
-- zip 大小不超过 50MB
+</details>
 
-## 第三方集成（不再维护）
+<details>
+<summary><strong>第三方集成（已停止维护）</strong></summary>
 
-> **推荐直接使用 Novaix** — Novaix 自身已提供完整的用户前台、套餐管理、订单计费、支付集成、工单系统等功能，大多数场景下无需额外对接第三方财务系统。
-
-> **⚠️ 以下集成模块已停止维护**，仅供已有对接需求的用户参考。WHMCS 模块和魔方模块不会继续更新，可能与新版本存在兼容性问题。Provisioning API 和 Webhook 接口仍保持稳定。
+> **⚠️ WHMCS 模块和魔方模块已停止维护**，不会继续更新，可能与新版本存在兼容性问题。Provisioning API 和 Webhook 接口仍保持稳定。推荐直接使用 Novaix 内置的用户前台和计费功能。
 
 [`integrations/`](./integrations/) 目录提供了与第三方系统对接所需的文档和模块：
 
@@ -160,6 +136,8 @@ my-theme.zip
 | 魔方 V10 服务器模块 | [`integrations/mofang/`](./integrations/mofang/) | ⚠️ 已停止维护 |
 | 魔方 2.x 模块 | [`integrations/mofang-legacy/`](./integrations/mofang-legacy/) | ⚠️ 已停止维护 |
 | WHMCS 模块 | [`integrations/whmcs/`](./integrations/whmcs/) | ⚠️ 已停止维护 |
+
+</details>
 
 ## 联系我们
 
