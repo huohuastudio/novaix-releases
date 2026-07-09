@@ -1,10 +1,26 @@
-# Novaix
+<div align="center">
+  <a href="https://novaix.cc">
+    <img src="./logo.svg" width="80" height="80" alt="Novaix Logo" />
+  </a>
+  <h1>Novaix</h1>
+  <p>面向中小型 VPS 服务商的一站式 IDC 管理系统</p>
+
+  <p>
+    <a href="https://github.com/huohuastudio/novaix-releases/releases/latest"><img src="https://img.shields.io/github/v/release/huohuastudio/novaix-releases?style=flat-square&color=2563EB&label=%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%AC" alt="Latest Release" /></a>
+    <a href="https://github.com/huohuastudio/novaix-releases/releases"><img src="https://img.shields.io/github/downloads/huohuastudio/novaix-releases/total?style=flat-square&color=60A5FA&label=%E4%B8%8B%E8%BD%BD%E9%87%8F" alt="Downloads" /></a>
+    <a href="https://github.com/huohuastudio/novaix-releases/issues"><img src="https://img.shields.io/github/issues/huohuastudio/novaix-releases?style=flat-square&color=1E3A8A&label=Issues" alt="Issues" /></a>
+  </p>
+
+  <p>
+    <a href="https://novaix.cc">官网</a> · <a href="https://docs.huohuastudio.com/novaix">文档</a> · <a href="https://github.com/huohuastudio/novaix-releases/releases">下载</a> · <a href="https://github.com/huohuastudio/novaix-releases/issues">反馈</a>
+  </p>
+</div>
+
+<br />
 
 > **⚠️ 当前为预览版本，功能尚未完善，可能存在不稳定的情况。如果你在体验过程中遇到任何问题或有功能建议，欢迎提交 [Issue](https://github.com/huohuastudio/novaix-releases/issues)。**
 
-Novaix 是一套商业化 IDC 管理系统，面向中小型 VPS 服务商，提供节点管理、实例生命周期管理、计费订单、工单系统等一站式解决方案。
-
-系统采用 Go + React 单体架构，编译为单个二进制文件，开箱即用。部署即可使用免费版，在管理后台输入激活码升级授权版，无需重启。
+Novaix 是一套商业化 IDC 管理系统，采用 Go + React 单体架构，编译为单个二进制文件，开箱即用。部署即可使用免费版，在管理后台输入激活码升级授权版，无需重启。
 
 ## 快速开始
 
