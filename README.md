@@ -1,6 +1,6 @@
 <div align="center">
   <a href="https://novaix.cc">
-    <img src="./logo.png" width="80" height="80" alt="Novaix Logo" />
+    <img src="https://raw.githubusercontent.com/huohuastudio/novaix-releases/main/logo.png" width="80" height="80" alt="Novaix Logo" />
   </a>
   <h1>Novaix</h1>
   <p>面向中小型 VPS 服务商的一站式 IDC 管理系统</p>
