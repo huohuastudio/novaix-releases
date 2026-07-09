@@ -1,14 +1,16 @@
 <div align="center">
   <a href="https://novaix.cc">
-    <img src="./logo.svg" width="80" height="80" alt="Novaix Logo" />
+    <img src="./logo.png" width="80" height="80" alt="Novaix Logo" />
   </a>
   <h1>Novaix</h1>
   <p>面向中小型 VPS 服务商的一站式 IDC 管理系统</p>
 
   <p>
-    <a href="https://github.com/huohuastudio/novaix-releases/releases/latest"><img src="https://img.shields.io/github/v/release/huohuastudio/novaix-releases?style=flat-square&color=2563EB&label=%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%AC" alt="Latest Release" /></a>
-    <a href="https://github.com/huohuastudio/novaix-releases/releases"><img src="https://img.shields.io/github/downloads/huohuastudio/novaix-releases/total?style=flat-square&color=60A5FA&label=%E4%B8%8B%E8%BD%BD%E9%87%8F" alt="Downloads" /></a>
-    <a href="https://github.com/huohuastudio/novaix-releases/issues"><img src="https://img.shields.io/github/issues/huohuastudio/novaix-releases?style=flat-square&color=1E3A8A&label=Issues" alt="Issues" /></a>
+    <a href="https://github.com/huohuastudio/novaix-releases/releases/latest"><img src="https://img.shields.io/github/v/release/huohuastudio/novaix-releases?style=for-the-badge&color=2563EB&label=%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%AC" alt="Latest Release" /></a>
+    &nbsp;
+    <a href="https://github.com/huohuastudio/novaix-releases/releases"><img src="https://img.shields.io/github/downloads/huohuastudio/novaix-releases/total?style=for-the-badge&color=60A5FA&label=%E4%B8%8B%E8%BD%BD%E9%87%8F" alt="Downloads" /></a>
+    &nbsp;
+    <a href="https://github.com/huohuastudio/novaix-releases/issues"><img src="https://img.shields.io/github/issues/huohuastudio/novaix-releases?style=for-the-badge&color=1E3A8A&label=Issues" alt="Issues" /></a>
   </p>
 
   <p>
