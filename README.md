@@ -14,7 +14,7 @@
   </p>
 
   <p>
-    <a href="https://novaix.cc">官网</a> · <a href="https://docs.huohuastudio.com/novaix">文档</a> · <a href="https://github.com/huohuastudio/novaix-releases/releases">下载</a> · <a href="https://github.com/huohuastudio/novaix-releases/issues">反馈</a>
+    <a href="https://novaix.cc">官网</a> · <a href="https://docs.huohuastudio.com/novaix">文档</a> · <a href="https://github.com/huohuastudio/novaix-releases/releases">下载</a> · <a href="https://github.com/huohuastudio/novaix-releases/issues">反馈</a> · <a href="https://qm.qq.com/q/twNnYXDBmw">QQ 群</a>
   </p>
 </div>
 
@@ -162,6 +162,7 @@ my-theme.zip
 - 官网：[novaix.cc](https://novaix.cc)
 - 文档：[docs.huohuastudio.com/novaix](https://docs.huohuastudio.com/novaix)
 - 邮箱：[support@huohuastudio.com](mailto:support@huohuastudio.com)
+- QQ 群：[点击加入](https://qm.qq.com/q/twNnYXDBmw)
 
 ## License
 
