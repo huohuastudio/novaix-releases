@@ -21,7 +21,7 @@
 <br />
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/huohuastudio/novaix-releases/main/screenshots/dashboard.webp" alt="Novaix Dashboard" width="800" />
+  <img src="https://raw.githubusercontent.com/huohuastudio/novaix-releases/main/screenshots/dashboard.png" alt="Novaix Dashboard" width="800" />
 </p>
 
 <br />
