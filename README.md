@@ -26,7 +26,8 @@
 
 <br />
 
-> **⚠️ 当前为预览版本，功能尚未完善，可能存在不稳定的情况。如果你在体验过程中遇到任何问题或有功能建议，欢迎提交 [Issue](https://github.com/huohuastudio/novaix-releases/issues)。**
+> [!CAUTION]
+> 项目仍在活跃开发中，功能和 API 可能随版本变动。遇到问题或有建议欢迎提交 [Issue](https://github.com/huohuastudio/novaix-releases/issues)。
 
 ## 亮点特性
 
@@ -77,14 +78,12 @@ tar -xzf novaix_linux_amd64.tar.gz
 
 ## 技术亮点
 
-| | |
-|---|---|
-| **语言与框架** | Go (Gin) + React (TypeScript) + TailwindCSS |
-| **数据库** | SQLite（默认）/ MySQL / PostgreSQL |
-| **部署方式** | 单二进制文件，支持 x86_64 和 ARM64 |
-| **前端架构** | SPA 嵌入二进制，支持主题热替换 |
-| **扩展机制** | 插件化 Provider（支付、短信、邮件、对象存储、实名认证） |
-| **API** | RESTful API，Swagger 文档，Provisioning API + Webhook |
+- **语言与框架** — Go (Gin) + React (TypeScript) + TailwindCSS
+- **数据库** — SQLite（默认）/ MySQL / PostgreSQL
+- **部署方式** — 单二进制文件，支持 x86_64 和 ARM64
+- **前端架构** — SPA 嵌入二进制，支持主题热替换
+- **扩展机制** — 插件化 Provider（支付、短信、邮件、对象存储、实名认证）
+- **API** — RESTful API，Swagger 文档，Provisioning API + Webhook
 
 <details>
 <summary><strong>功能全览</strong></summary>
