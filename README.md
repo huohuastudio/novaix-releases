@@ -14,7 +14,7 @@
   </p>
 
   <p>
-    <a href="https://novaix.cc">官网</a> · <a href="https://novaix.huohuastudio.com">演示</a> · <a href="https://docs.huohuastudio.com/novaix">文档</a> · <a href="https://github.com/huohuastudio/novaix-releases/releases">下载</a> · <a href="https://github.com/huohuastudio/novaix-releases/issues">反馈</a> · <a href="https://qm.qq.com/q/twNnYXDBmw">QQ 群</a>
+    <a href="https://novaix.cc">官网</a> · <a href="https://novaix.huohuastudio.com">演示</a> · <a href="https://docs.huohuastudio.com/novaix">文档</a> · <a href="https://github.com/huohuastudio/novaix-releases/releases">更新日志</a> · <a href="https://github.com/huohuastudio/novaix-releases/releases/latest">下载</a> · <a href="https://github.com/huohuastudio/novaix-releases/issues">反馈</a> · <a href="https://qm.qq.com/q/twNnYXDBmw">QQ 群</a>
   </p>
 </div>
 
