@@ -38,7 +38,7 @@
 - **多节点集群** — 节点分组与集群管理，支持实例在线热迁移与 HA 自动疏散
 - **主题与插件** — 前端主题可替换，功能通过插件扩展，支付/短信/邮件/认证均为插件化配置
 - **在线更新** — 一键升级，自动数据库迁移，SQLite 迁移失败自动回滚
-- **开放集成** — 提供 Provisioning API 和 Webhook 回调，可对接任意第三方系统
+- **开放集成** — 提供 Provisioning API 和 Webhook 回调，可对接任意外部系统
 
 ## 快速开始
 
@@ -170,27 +170,6 @@ my-theme.zip
 > `download_url` 中的文件名必须与你放到 `themes/` 目录下的 zip 文件名一致。`requires` 字段建议使用 `~x.y.z` 约束，表示兼容该 patch 版本范围。
 
 **审核标准：** 主题能正常安装和使用、`theme.json` 字段完整且格式正确、不包含恶意代码或外部跟踪脚本、zip 大小不超过 50MB。
-
-</details>
-
-<details>
-<summary><strong>第三方集成（已停止维护）</strong></summary>
-
-<br />
-
-> **⚠️ WHMCS 模块和魔方模块已停止维护**，不会继续更新，可能与新版本存在兼容性问题。Provisioning API 和 Webhook 接口仍保持稳定。推荐直接使用 Novaix 内置的用户前台和计费功能。
-
-[`integrations/`](./integrations/) 目录提供了与第三方系统对接所需的文档和模块：
-
-| 内容 | 路径 | 说明 |
-|------|------|------|
-| Provisioning API 参考 | [`integrations/provisioning-api.md`](./integrations/provisioning-api.md) | 完整接口说明、认证方式、幂等性、错误码 |
-| Webhook 回调与验签 | [`integrations/webhook.md`](./integrations/webhook.md) | 异步通知格式与 HMAC-SHA256 验签 |
-| Webhook 接收端示例 | [`integrations/webhook-examples/`](./integrations/webhook-examples/) | PHP / Python / Node 三种语言的参考实现 |
-| 魔方 V10 上游供应商模块 | [`integrations/mofang-reserver/`](./integrations/mofang-reserver/) | ⚠️ 已停止维护 |
-| 魔方 V10 服务器模块 | [`integrations/mofang/`](./integrations/mofang/) | ⚠️ 已停止维护 |
-| 魔方 2.x 模块 | [`integrations/mofang-legacy/`](./integrations/mofang-legacy/) | ⚠️ 已停止维护 |
-| WHMCS 模块 | [`integrations/whmcs/`](./integrations/whmcs/) | ⚠️ 已停止维护 |
 
 </details>
 

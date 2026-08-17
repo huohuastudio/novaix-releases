@@ -1,6 +1,6 @@
 # Provisioning API 参考
 
-NovaIx 提供 `/api/v1/provision/` 路由组，让第三方系统通过 API 自动创建/管理 VPS 实例。所有接口返回标准格式：
+NovaIx 提供 `/api/v1/provision/` 路由组，让外部系统通过 API 自动创建/管理 VPS 实例。所有接口返回标准格式：
 
 ```json
 { "code": 0, "message": "ok", "data": { ... } }
@@ -16,7 +16,7 @@ NovaIx 提供 `/api/v1/provision/` 路由组，让第三方系统通过 API 自�
 
 NovaIx 把"集成方身份"和"访问凭证"分开：
 
-- **Integration**：稳定的集成方身份（如"魔方主站"、"WHMCS 灰度环境"），承载 `callback_url`、`callback_secret`、实例归属、external_id 唯一性
+- **Integration**：稳定的集成方身份（如"主站财务系统"、"灰度环境"），承载 `callback_url`、`callback_secret`、实例归属、external_id 唯一性
 - **API Key**：短期访问凭证（`nv_` 开头），关联到某个 Integration
 
 这种分离让 API Key **可以安全轮换**：删除旧 Key、创建新 Key，业务连续性不受影响——旧实例仍归属同一 Integration，新 Key 能继续操作；Webhook 回调地址不变。
@@ -26,7 +26,7 @@ NovaIx 把"集成方身份"和"访问凭证"分开：
 1. 登录 NovaIx 后台
 2. 系统设置 → 集成方管理 → 新建
 3. 填写：
-   - **名称**：如"魔方主站"
+   - **名称**：如"主站财务系统"
    - **回调地址**：Webhook 接收端 HTTPS URL
 4. 保存后**立即记录** `callback_secret`，仅展示一次（后续可通过"轮换"重新生成）
 
@@ -74,7 +74,7 @@ Authorization: Bearer nv_a1b2c3d4e5f6...
 | POST | `/instances/:id/reset-password` | 重置密码 |
 | GET | `/tasks/:id` | 查询异步任务状态（用于确认 suspend/terminate 等动作真正完成） |
 
-所有 `/:id` 端点支持 `?by=external_id` 查询参数：传入第三方系统的服务 ID 即可，无需维护内部 ID 映射。
+所有 `/:id` 端点支持 `?by=external_id` 查询参数：传入外部系统的服务 ID 即可，无需维护内部 ID 映射。
 
 ---
 
