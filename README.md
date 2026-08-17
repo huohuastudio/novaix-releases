@@ -73,6 +73,7 @@ tar -xzf novaix_linux_amd64.tar.gz
 | 代理商系统 | — | ✓ |
 | 共享 IP / NAT | — | ✓ |
 | 插件系统 | — | ✓ |
+| 集成方（开放接口） | — | ✓ |
 
 前往 [Spark Studio 官网](https://huohuastudio.com) 获取激活码。
 
