@@ -72,6 +72,7 @@ tar -xzf novaix_linux_amd64.tar.gz
 | 私有网络（VPC） | — | ✓ |
 | 代理商系统 | — | ✓ |
 | 共享 IP / NAT（支持独立 IPv6） | — | ✓ |
+| 纯 IPv6 套餐 | — | ✓ |
 | 插件系统 | — | ✓ |
 | 集成方 | — | ✓ |
 
@@ -96,7 +97,7 @@ tar -xzf novaix_linux_amd64.tar.gz
 - 节点分组与集群，实例在线热迁移，HA 自动疏散与维护模式
 - 容器/虚拟机全生命周期管理（创建、启停、重装、快照、批量操作）
 - 基于 OVN 的 VPC 私有网络，子网划分与安全组
-- IP 池管理，灵活的 IP 分配与回收
+- IP 池管理，灵活的 IP 分配与回收，支持纯 IPv6 套餐（不分配 IPv4）
 - 镜像分组管理，cloud-init 开机脚本，多节点分发，自定义 ISO（含双 ISO）
 - 支持 Linux 和 Windows 虚拟机，Windows 支持代理自动密码重置和网络配置
 
