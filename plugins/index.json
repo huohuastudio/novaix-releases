@@ -29,7 +29,7 @@
     {
       "id": "geetest",
       "name": "极验行为验证",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "极验 CAPTCHA v4 行为验证（滑动/点选/无感），适用于登录、注册等场景的人机验证",
       "type": "captcha",
       "author": {
