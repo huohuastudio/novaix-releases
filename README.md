@@ -98,7 +98,7 @@ tar -xzf novaix_linux_amd64.tar.gz
 - 网络向导，NAT 模式一键配置 DHCP/NAT 和共享 IP，公网模式支持桥接或路由（Proxy ARP）接入
 - 容器/虚拟机全生命周期管理（创建、启停、重装、快照、批量操作）
 - 基于 OVN 的 VPC 私有网络，子网划分与安全组
-- IP 池管理（节点绑定、单 IP 增删、状态管理），灵活的 IP 分配与回收，支持纯 IPv6 套餐（不分配 IPv4）
+- IP 池管理（节点绑定、单 IP 增删、状态管理），灵活的 IP 分配与回收，支持顺序/随机分配和分配区间限制，支持纯 IPv6 套餐（不分配 IPv4）
 - 镜像分组管理，cloud-init 开机脚本，多节点分发，自定义 ISO（含双 ISO）
 - 支持 Linux 和 Windows 虚拟机，Windows 支持代理自动密码重置和网络配置，Linux VM 支持通过虚拟机代理配置网络
 - NAT 共享 IP 支持固定端口段和按需选端口两种模式，端口转发自动适配 nftables/iptables
