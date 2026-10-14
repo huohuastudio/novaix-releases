@@ -66,6 +66,19 @@
       "download_url": "https://raw.githubusercontent.com/huohuastudio/novaix-releases/main/plugins/smsbao.zip"
     },
     {
+      "id": "telegram-bot",
+      "name": "Telegram 机器人",
+      "version": "1.0.0",
+      "description": "通过 Telegram 机器人绑定账号、查询服务器、确认电源操作并接收任务通知",
+      "type": "extension",
+      "author": {
+        "name": "Novaix",
+        "url": "https://github.com/huohuastudio/novaix-releases"
+      },
+      "requires": ">=0.4.10",
+      "download_url": "https://raw.githubusercontent.com/huohuastudio/novaix-releases/main/plugins/telegram-bot.zip"
+    },
+    {
       "id": "epusdt",
       "name": "EPUSDT",
       "version": "1.0.0",
