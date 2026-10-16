@@ -26,8 +26,10 @@
 
 <br />
 
-> [!CAUTION]
-> 项目仍在活跃开发中，功能和 API 可能随版本变动。遇到问题或有建议欢迎提交 [Issue](https://github.com/huohuastudio/novaix-releases/issues)。
+> [!IMPORTANT]
+> **公测版本**：Novaix 自 v0.5.0 起进入公测阶段。核心功能（计费、支付回调、退款、实例生命周期、在线升级）已在 SQLite、MySQL、PostgreSQL 上完成多轮测试，但仍可能存在问题，部分功能和 API 在正式版前仍可能调整。
+>
+> 用于生产环境前请做好数据备份；使用 MySQL / PostgreSQL 时，升级前请先手动备份数据库。遇到问题或有建议欢迎提交 [Issue](https://github.com/huohuastudio/novaix-releases/issues)。
 
 ## 亮点特性
 
