@@ -14,6 +14,19 @@
       "download_url": "https://raw.githubusercontent.com/huohuastudio/novaix-releases/main/plugins/clogin.zip"
     },
     {
+      "id": "cloudflare-turnstile",
+      "name": "Cloudflare Turnstile",
+      "version": "1.0.0",
+      "description": "Cloudflare Turnstile 免费人机验证，多数访客无需交互即可通过，适用于登录、注册等场景",
+      "type": "captcha",
+      "author": {
+        "name": "Novaix",
+        "url": "https://github.com/huohuastudio/novaix-releases"
+      },
+      "requires": "",
+      "download_url": "https://raw.githubusercontent.com/huohuastudio/novaix-releases/main/plugins/cloudflare-turnstile.zip"
+    },
+    {
       "id": "epay",
       "name": "易支付",
       "version": "1.0.0",
@@ -68,8 +81,8 @@
     {
       "id": "telegram-bot",
       "name": "Telegram 机器人",
-      "version": "1.0.0",
-      "description": "通过 Telegram 机器人绑定账号、查询服务器、确认电源操作并接收任务通知",
+      "version": "1.1.0",
+      "description": "通过 Telegram 按钮菜单查询服务器、确认电源操作并接收任务通知",
       "type": "extension",
       "author": {
         "name": "Novaix",
