@@ -1,16 +1,3 @@
 {
-  "themes": [
-    {
-      "id": "hero-pink",
-      "name": "Hero Pink",
-      "version": "1.4.3",
-      "description": "淡粉色 Novaix 主题，包含门户侧栏布局与响应式首页。",
-      "author": {
-        "name": "Yoshino",
-        "url": "https://github.com/Grandova"
-      },
-      "requires": "~0.4.4",
-      "download_url": "https://github.com/Grandova/Novxix-HeroUI-Pink-Theme/releases/download/v1.4.3/hero-pink.zip"
-    }
-  ]
+  "themes": []
 }
