@@ -66,6 +66,19 @@
       "download_url": "https://raw.githubusercontent.com/huohuastudio/novaix-releases/main/plugins/pushplus.zip"
     },
     {
+      "id": "rainyun",
+      "name": "雨云",
+      "version": "1.0.0",
+      "description": "对接雨云云服务器（RCS）API，余额开通、续费、开关机、重装、VNC 与释放（尚未在真实环境联调）",
+      "type": "supplier",
+      "author": {
+        "name": "Novaix",
+        "url": "https://github.com/huohuastudio/novaix-releases"
+      },
+      "requires": ">=0.6.0",
+      "download_url": "https://raw.githubusercontent.com/huohuastudio/novaix-releases/main/plugins/rainyun.zip"
+    },
+    {
       "id": "smsbao",
       "name": "短信宝",
       "version": "1.0.0",
@@ -90,6 +103,45 @@
       },
       "requires": ">=0.4.10",
       "download_url": "https://raw.githubusercontent.com/huohuastudio/novaix-releases/main/plugins/telegram-bot.zip"
+    },
+    {
+      "id": "whmcs",
+      "name": "WHMCS",
+      "version": "1.0.0",
+      "description": "通过 WHMCS 经典 API 以上游客户账号下单转售，余额支付、自动开通、续费、暂停与退订（尚未在真实环境联调）",
+      "type": "supplier",
+      "author": {
+        "name": "Novaix",
+        "url": "https://github.com/huohuastudio/novaix-releases"
+      },
+      "requires": ">=0.6.0",
+      "download_url": "https://raw.githubusercontent.com/huohuastudio/novaix-releases/main/plugins/whmcs.zip"
+    },
+    {
+      "id": "zjmf-finance",
+      "name": "魔方财务系统",
+      "version": "1.0.0",
+      "description": "对接智简魔方财务系统 v3（zjmf_api 下游接口）进行云服务器转售，支持余额下单、续费、暂停、退订与实例操作。依据公开源码实现并在模拟上游上测试，尚未在真实环境联调，正式使用前请先用测试账号验证。",
+      "type": "supplier",
+      "author": {
+        "name": "Novaix",
+        "url": "https://github.com/huohuastudio/novaix-releases"
+      },
+      "requires": ">=0.6.0",
+      "download_url": "https://raw.githubusercontent.com/huohuastudio/novaix-releases/main/plugins/zjmf-finance.zip"
+    },
+    {
+      "id": "zjmf-v10",
+      "name": "魔方业务系统",
+      "version": "1.0.0",
+      "description": "对接智简魔方业务系统 V10（魔方云模块，最低 10.4.6）进行云服务器转售，支持余额下单、续费、暂停、退订与实例操作。依据公开源码实现并在模拟上游上测试，尚未在真实环境联调，正式使用前请先用测试账号验证。",
+      "type": "supplier",
+      "author": {
+        "name": "Novaix",
+        "url": "https://github.com/huohuastudio/novaix-releases"
+      },
+      "requires": ">=0.6.0",
+      "download_url": "https://raw.githubusercontent.com/huohuastudio/novaix-releases/main/plugins/zjmf-v10.zip"
     },
     {
       "id": "epusdt",
