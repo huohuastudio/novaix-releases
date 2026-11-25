@@ -14,7 +14,7 @@
   </p>
 
   <p>
-    <a href="https://novaix.cc">官网</a> · <a href="https://novaix.huohuastudio.com">演示</a> · <a href="https://docs.huohuastudio.com/novaix">文档</a> · <a href="https://github.com/huohuastudio/novaix-releases/releases">更新日志</a> · <a href="https://github.com/huohuastudio/novaix-releases/releases/latest">下载</a> · <a href="https://github.com/huohuastudio/novaix-releases/issues">反馈</a> · <a href="https://qm.qq.com/q/twNnYXDBmw">QQ 群</a>
+    <a href="https://novaix.cc">官网</a> · <a href="https://demo.novaix.cc">演示</a> · <a href="https://docs.huohuastudio.com/novaix">文档</a> · <a href="https://github.com/huohuastudio/novaix-releases/releases">更新日志</a> · <a href="https://github.com/huohuastudio/novaix-releases/releases/latest">下载</a> · <a href="https://github.com/huohuastudio/novaix-releases/issues">反馈</a> · <a href="https://qm.qq.com/q/twNnYXDBmw">QQ 群</a>
   </p>
 </div>
 
@@ -192,7 +192,7 @@ my-theme.zip
 ## 联系我们
 
 - 官网：[novaix.cc](https://novaix.cc)
-- 演示：[novaix.huohuastudio.com](https://novaix.huohuastudio.com)
+- 演示：[demo.novaix.cc](https://demo.novaix.cc)
 - 文档：[docs.huohuastudio.com/novaix](https://docs.huohuastudio.com/novaix)
 - 邮箱：[support@huohuastudio.com](mailto:support@huohuastudio.com)
 - QQ 群：[点击加入](https://qm.qq.com/q/twNnYXDBmw)
