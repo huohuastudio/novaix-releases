@@ -14,7 +14,7 @@
   </p>
 
   <p>
-    <a href="https://novaix.cc">官网</a> · <a href="https://demo.novaix.cc">演示</a> · <a href="https://docs.huohuastudio.com/novaix">文档</a> · <a href="https://github.com/huohuastudio/novaix-releases/releases">更新日志</a> · <a href="https://github.com/huohuastudio/novaix-releases/releases/latest">下载</a> · <a href="https://github.com/huohuastudio/novaix-releases/issues">反馈</a> · <a href="https://qm.qq.com/q/twNnYXDBmw">QQ 群</a>
+    <a href="https://novaix.cc">官网</a> · <a href="https://demo.novaix.cc">演示</a> · <a href="https://novaix.cc/docs/">文档</a> · <a href="https://github.com/huohuastudio/novaix-releases/releases">更新日志</a> · <a href="https://github.com/huohuastudio/novaix-releases/releases/latest">下载</a> · <a href="https://github.com/huohuastudio/novaix-releases/issues">反馈</a> · <a href="https://qm.qq.com/q/twNnYXDBmw">QQ 群</a>
   </p>
 </div>
 
@@ -61,7 +61,7 @@ tar -xzf novaix_linux_amd64.tar.gz
 | `novaix_linux_amd64.tar.gz` | x86_64 | 大多数云服务器 |
 | `novaix_linux_arm64.tar.gz` | ARM64 | ARM 架构服务器 |
 
-前往 [Releases](https://github.com/huohuastudio/novaix-releases/releases) 下载最新版本。详细部署指南请参阅[文档](https://docs.huohuastudio.com/novaix)。
+前往 [Releases](https://github.com/huohuastudio/novaix-releases/releases) 下载最新版本。详细部署指南请参阅[文档](https://novaix.cc/docs/)。
 
 ## 免费版与授权版
 
@@ -193,7 +193,7 @@ my-theme.zip
 
 - 官网：[novaix.cc](https://novaix.cc)
 - 演示：[demo.novaix.cc](https://demo.novaix.cc)
-- 文档：[docs.huohuastudio.com/novaix](https://docs.huohuastudio.com/novaix)
+- 文档：[novaix.cc/docs](https://novaix.cc/docs/)
 - 邮箱：[support@huohuastudio.com](mailto:support@huohuastudio.com)
 - QQ 群：[点击加入](https://qm.qq.com/q/twNnYXDBmw)
 

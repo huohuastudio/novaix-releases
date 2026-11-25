@@ -29,7 +29,7 @@ body:
     attributes:
       label: 相关文档链接
       description: 是否已查阅过相关文档？请贴上链接
-      placeholder: "例如: https://docs.huohuastudio.com/novaix/..."
+      placeholder: "例如: https://novaix.cc/docs/..."
 
   - type: textarea
     id: extra
